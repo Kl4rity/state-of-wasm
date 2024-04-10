@@ -5,6 +5,8 @@ wit_bindgen::generate!({
     world: "trading",
 });
 
+const ASSETS: [&str; 3] = ["BTC", "ETH", "DOGE"];
+
 // Define a custom type and implement the generated `Guest` trait for it which
 // represents implementing all the necessary exported interfaces for this
 // component.
@@ -14,13 +16,10 @@ impl Guest for MyHost {
     fn validate(trade: Trade) -> bool {
         let is_jonas = trade.user == "Jonas";
         let is_positive = trade.amount > 0.0;
-        if is_jonas && is_positive {
-            return true;
-        } else {
-            return false;
-        }
+        let is_tradable = ASSETS.contains(&&*trade.asset);
+        is_jonas && is_positive && is_tradable
     }
-}   
+}
 
 // export! defines that the `MyHost` struct defined below is going to define
 // the exports of the `world`, namely the `run` function.

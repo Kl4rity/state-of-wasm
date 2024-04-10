@@ -13,13 +13,13 @@
             await wasmpack.default();
 
             console.log("Calling wasm-pack module...");
-            let trade = new wasmpack.Trade("Jonas", "DOGE", 10);
-            let rejectedTrade = new wasmpack.Trade("Judas", "DOGE", 1000);
 
+            let trade = new wasmpack.Trade("Jonas", "DOGE", 10);
             console.log(`Trade: ${JSON.stringify(trade)}`);
             let tradeResult = wasmpack.validate(trade);
             console.log(`Trade Valid: ${tradeResult}`);
 
+            let rejectedTrade = new wasmpack.Trade("Judas", "DOGE", 1000);
             console.log(`Trade: ${JSON.stringify(rejectedTrade)}`);
             let expectRejected = wasmpack.validate(rejectedTrade);
             console.log(`Trade Valid: ${expectRejected}`);
