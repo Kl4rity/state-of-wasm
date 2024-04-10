@@ -1,13 +1,20 @@
-mod utils;
-
 use wasm_bindgen::prelude::*;
 
+const ASSETS: [&str; 3] = ["BTC", "ETH", "DOGE"];
+
 #[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
+pub struct Trade {
+    user: String,
+    asset: String,
+    amount: f32,
 }
 
 #[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, trading!");
+pub fn validate(trade: Trade) -> bool {
+    let is_jonas = trade.user == "Jonas";
+    let is_tradable = ASSETS.contains(&&*trade.asset); 
+    let is_positive = trade.amount > 0.0;
+
+    is_jonas && is_positive && is_tradable
 }
+

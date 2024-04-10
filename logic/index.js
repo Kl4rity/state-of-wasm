@@ -17,9 +17,9 @@ import * as wasmpack from "/wasm-pack/trading/pkg/trading.js";
 
   console.log("Instantiating wasm-pack module...");
 
+  window.wasmpack = wasmpack;
+
   let wasmPackInstance = await wasmpack.default();
 
-  console.log("Ready to use functions");
-
-  wasmPackInstance.greet();
+  window.wasmPackInstance = wasmPackInstance;
 })();
