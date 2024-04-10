@@ -1,9 +1,3 @@
-## Overview
+# State of Wasm
 
-This repository contains code to explore the workings of WASMCloud. It is a basic setup built on top of a local WASMCloud installation that you can get via Homebrew.
-
-```sh
-brew install wasmcloud
-```
-
-Both the /rust and the /hello folders have been created by following the WASMCloud [Quickstart](https://wasmcloud.com/docs/tour/hello-world).
+This repository is intended as a mapping and exploration of the promises / areas of application of WebAssembly as of today. It is to be used in a Workshop setting in which the host first outlines the Story of Wasm with a subsequent dive into an actual hands-on application of the various areas of application to see how the promises feel / hold up in real code.
