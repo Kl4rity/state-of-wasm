@@ -2,8 +2,12 @@
 
 The most basic use of Wasm is that we can develop functionality and run it anywhere we can find a Wasm runtime - which is essentially anywhere.
 
-## How to experience this folder
+Each folder in this directory can be started with...
+```bash
+npm install && npm start
+```
 
+## How to experience this folder
 ### AssemblyScript
 I've explored the field by starting out with the most familiar high-level language out of the bunch - AssemblyScript. I abandoned it.
 

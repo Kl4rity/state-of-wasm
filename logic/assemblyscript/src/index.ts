@@ -1,8 +1,10 @@
+// --------------- 1 ----------------------
 // We can see that there are new data types that we have not seen before. 
 export function add(a: i32, b: i32): i32 {
   return a + b;
 }
 
+// --------------- 2 ----------------------
 // We are already using utility functions provided by AssemblyScript here!
 // All interactions using data types that cannot be passed (anything BUT numbers)
 // must be serialized into memory and read from there in the wasm context.
@@ -11,15 +13,15 @@ export function appendWasmToString(inputString: string): string {
   return inputString + "... from WASM!";
 }
 
+// --------------- 3 ----------------------
 // We were able to use strings because AssemblyScript already offers convenience functions for writing and parsing them to and from memory.
-// Things become more difficult once we want to do more domain-y kinds of things.
+// Things become more difficult once we want to do interact with more complex objects.
 export function validateTrade(ptr: i32, len: i32): boolean {
   const trade = parseStringIntoObject(String.UTF8.decodeUnsafe(ptr, len));
   return validate(trade);
 }
 
-function validate(jsonTradeString: String): boolean {
-  let trade = parseStringIntoObject(jsonTradeString);
+function validate(trade: Trade): boolean {
   // TODO Actual validation
   return true;
 }
@@ -39,11 +41,10 @@ class Trade {
   }
 }
 
+// --------------- Addendum ----------------------
 // as-bindgen is no longer being maintained - so looking towards the Wasm component model is the next-best step.
 // https://component-model.bytecodealliance.org/language-support/javascript.html
 // https://www.youtube.com/watch?v=ChBGAZRU1qs
 //
-// JCO is used for generating the bindings to the WIT Wasm component - we can't actually propagate AssemblyScript to that level.
-//
-// Start out with this:
-// https://rustwasm.github.io/docs/book/game-of-life/hello-world.html
+// JCO is used for generating the bindings to the WIT Wasm component - we can't actually propagate AssemblyScript to that level
+// because AssemblyScript isn't fond of the WebAssembly component model and therefore doesn't support it.
