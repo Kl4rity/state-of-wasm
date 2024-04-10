@@ -1,6 +1,6 @@
 import loader from "https://cdn.jsdelivr.net/npm/@assemblyscript/loader/index.js";
 import * as component from "/wit-bindgen/js/build/rust-component.js";
-import * as wasmpack from "/wasm-pack/trading/pkg/trading.js";
+import * as wasmpack from "/wasm-pack/rust/pkg/trading.js";
 
 (async () => {
   console.log("Instantiating...");

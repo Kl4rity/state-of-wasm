@@ -6,7 +6,7 @@
     "compile": "npm run clean && asc ./src/index.ts -o ./build/index.wasm -t ./build/index.wat -b esm --target debug --exportRuntime",
     "clean": "rm -r build > /dev/null 2>&1 || exit 0",
     "serve": "http-server .",
-    "start": "npm install -g assemblyscript && npm run compile && npm run serve"
+    "start": "npm install && npm run compile && npm run serve"
   },
   "author": "Clemens Stift",
   "license": "ISC",

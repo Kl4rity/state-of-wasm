@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Script Example</title>
+    <script type="module">
+        import * as wasmpack from "/rust/pkg/trading.js";
+
+        (async () => {
+            console.log("Instantiating wasm-pack module...");
+            // https://stackoverflow.com/questions/60496032/passing-strings-between-rust-and-javascript-when-building-with-wasm-pack
+            await wasmpack.default();
+
+            console.log("Calling wasm-pack module...");
+            let trade = new wasmpack.Trade("Jonas", "DOGE", 10);
+            let rejectedTrade = new wasmpack.Trade("Judas", "DOGE", 1000);
+
+            console.log(`Trade: ${JSON.stringify(trade)}`);
+            let tradeResult = wasmpack.validate(trade);
+            console.log(`Trade Valid: ${tradeResult}`);
+
+            console.log(`Trade: ${JSON.stringify(rejectedTrade)}`);
+            let expectRejected = wasmpack.validate(rejectedTrade);
+            console.log(`Trade Valid: ${expectRejected}`);
+        })();
+    </script>
+</head>
+<body>
+    <h1>Wasm-Bindgen using Wasm-Pack!</h1>
+    <p>Open the console to see the output.</p>
+</body>
+</html>

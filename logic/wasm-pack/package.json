@@ -1,0 +1,17 @@
+{
+  "name": "logic-wasm-pack",
+  "version": "1.0.0",
+  "description": "Using Rust to create a wasm package which can be used to run logic in the browser",
+  "scripts": {
+    "compile": "npm run clean && cd rust && wasm-pack build --target web",
+    "clean": "rm -r ./rust/pkg > /dev/null 2>&1 || exit 0 && rm -r ./rust/target > /dev/null 2>&1 || exit 0",
+    "serve": "http-server .",
+    "start": "npm install && npm run compile && npm run serve"
+  },
+  "author": "Clemens Stift",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "wasm-pack": "^0.12.1"
+  }
+}
