@@ -1,0 +1,17 @@
+package aedge:trading;
+
+world trading {
+  enum assets {
+    BTC,
+    ETH,
+    DOGE
+  }
+
+  record trade {
+      user: string,
+      asset: assets,
+      amount: f32,
+  }
+
+  export validate: func(trade: trade) -> bool;
+}

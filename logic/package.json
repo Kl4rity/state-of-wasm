@@ -1,0 +1,14 @@
+{
+  "name": "logic",
+  "version": "1.0.0",
+  "description": "The most basic use of Wasm is that we can develop functionality and run it anywhere we can find a Wasm runtime - which is essentially anywhere.",
+  "main": "index.ts",
+  "scripts": {
+    "serve": "http-server ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

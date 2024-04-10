@@ -1,0 +1,17 @@
+{
+  "name": "logic",
+  "version": "1.0.0",
+  "description": "The most basic use of Wasm is that we can develop functionality and run it anywhere we can find a Wasm runtime - which is essentially anywhere.",
+  "main": "index.ts",
+  "scripts": {
+    "compile": "npm run clean && asc ./src/index.ts -o ./build/index.wasm -t ./build/index.wat -b esm --target debug --exportRuntime",
+    "clean": "rm -r build > /dev/null 2>&1 || exit 0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bytecodealliance/componentize-js": "^0.8.3",
+    "@bytecodealliance/jco": "^1.1.1",
+    "assemblyscript": "^0.27.26"
+  }
+}
