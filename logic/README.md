@@ -4,7 +4,7 @@ The most basic use of Wasm is that we can develop functionality and run it anywh
 
 Each folder in this directory can be started with...
 ```bash
-npm install && npm start
+npm start
 ```
 
 ## How to experience this folder
