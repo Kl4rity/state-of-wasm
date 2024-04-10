@@ -14,3 +14,8 @@ Using cargo component instead we could create WASM components -> but only for th
 Could be used to share logic across many backend implementations - but it's not as universal as I'd like it to be.
 
 Abandoned.
+
+# Process
+1. wit-bindgen --target wasm32-unknown-unknown
+2. wasm-tools component new ./target/wasm32-unknown-unknown/debug/rust.wasm -o rust-component.wasm
+3. jco

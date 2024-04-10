@@ -18,7 +18,8 @@ export function validateTrade(ptr: i32, len: i32): boolean {
   return validate(trade);
 }
 
-function validate(trade: Trade): boolean {
+function validate(jsonTradeString: String): boolean {
+  let trade = parseStringIntoObject(jsonTradeString);
   // TODO Actual validation
   return true;
 }

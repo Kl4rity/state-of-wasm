@@ -1,5 +1,5 @@
 import loader from "https://cdn.jsdelivr.net/npm/@assemblyscript/loader/index.js";
-// import * as component from "/wit-bindgen/js/build/rust.js";
+import * as component from "/wit-bindgen/js/build/rust-component.js";
 import * as wasmpack from "/wasm-pack/trading/pkg/trading.js";
 
 (async () => {
@@ -16,10 +16,10 @@ import * as wasmpack from "/wasm-pack/trading/pkg/trading.js";
   console.log(`Concatenated String is: ${outputsString}`);
 
   console.log("Instantiating wasm-pack module...");
-
   window.wasmpack = wasmpack;
+  // Instantiates the module
+  // https://stackoverflow.com/questions/60496032/passing-strings-between-rust-and-javascript-when-building-with-wasm-pack
+  await wasmpack.default();
 
-  let wasmPackInstance = await wasmpack.default();
-
-  window.wasmPackInstance = wasmPackInstance;
+  window.component = component;
 })();

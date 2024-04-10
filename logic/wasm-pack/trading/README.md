@@ -5,3 +5,7 @@ Can create interfaces for JS, but still not "widening" the flow of data types be
 Additional moves such as serde-wasm-bindgen might be required at this stage.
 
 https://github.com/RReverser/serde-wasm-bindgen
+
+## Tooling for web
+* js-sys
+* web-sys

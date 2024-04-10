@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "generate-bindings": "jco transpile ../rust/target/wasm32-wasi/debug/rust.wasm -o build"
+    "generate-bindings": "jco transpile ../rust/target/wasm32-unknown-unknown/debug/rust.wasm -o build",
+    "generate": "jco transpile ../rust/rust-component.wasm -o build"
   },
   "author": "",
   "license": "ISC",

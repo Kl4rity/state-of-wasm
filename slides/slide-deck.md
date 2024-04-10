@@ -15,9 +15,7 @@ What is it and how relevant is it to my job?
 ---
 
 # What I have planned
-
-- History and "Levels of WASM"
-- Hands-on on each Level
+- History and "Levels of WASM" Hands-on on each Level
 
 Style-Note:
 --> Use Achievement-Unlocked jokes throughout the journey w/ examples.
@@ -102,6 +100,10 @@ WASM VM:
 * Extremely fast VM starts - microseconds
 * Extremely small memory footprint
 * Fast Cleanup of linear memory chunk
+
+https://www.youtube.com/watch?v=2GSlCFCuN8U
+
+* Calls between Host and Guest are expensive - heavy computation inside of it can be a massive performance gain!
 
 ---
 
