@@ -1,0 +1,15 @@
+{
+  "name": "minimal-wasmcloud",
+  "version": "1.0.0",
+  "description": "Minimal Setup using wasmcloud",
+  "scripts": {
+    "undeploy": "wash app delete go-http-hello --delete-all && wash app delete rust-http-hello --delete-all",
+    "deploy": "npm run undeploy && echo $(cd go && wash app deploy ./wadm.yaml) && echo $(cd rust && wash app deploy ./wadm.yaml)",
+    "compile": "echo $(cd go && wash build) && echo $(cd rust && wash build)",
+    "install-manual": "echo 'Please make sure Wash is installed: https://wasmcloud.com/docs/installationl'",
+    "start-wash": "echo 'Ensure Wash is running with --> wash up'",
+    "start": "npm run install-manual && npm run start-wash && npm run compile && npm run deploy"
+  },
+  "author": "Clemens Stift",
+  "license": "ISC"
+}

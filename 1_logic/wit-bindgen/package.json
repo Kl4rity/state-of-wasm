@@ -1,0 +1,22 @@
+{
+  "name": "logic-wasm-pack",
+  "version": "1.0.0",
+  "description": "Using wit-bindgen to generate a WebAssembly module from Rust",
+  "scripts": {
+    "compile": "npm run clean && cd rust && cargo build --target wasm32-unknown-unknown && wasm-tools component new ./target/wasm32-unknown-unknown/debug/rust.wasm -o rust-component.wasm && cd .. && npm run generate-bindings",
+    "clean": "npm run clean-rust && npm run clean-js",
+    "clean-rust": "rm ./rust/rust-component.wasm > /dev/null 2>&1 || exit 0 && rm -r ./rust/target > /dev/null 2>&1 || exit 0",
+    "clean-js": "rm -r ./js/build > /dev/null 2>&1 || exit 0",
+    "install-rust": "npm run install-manual && cd rust && rustup target add wasm32-unknown-unknown && cargo add wit-bindgen && cd ..",
+    "install-manual": "echo 'Please make sure Rust is installed: https://www.rust-lang.org/tools/install'",
+    "serve": "http-server .",
+    "start": "npm run install-rust && npm install && npm run compile && npm run serve",
+    "generate-bindings": "jco transpile ./rust/rust-component.wasm -o build"
+  },
+  "author": "Clemens Stift",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "@bytecodealliance/jco": "^1.1.1"
+  }
+}
