@@ -9,15 +9,16 @@ npm start
 
 ## How to experience this folder
 ### AssemblyScript
-I've explored the field by starting out with the most familiar high-level language out of the bunch - AssemblyScript. I abandoned it.
-
-### Wit-Bindgen
-Next up, I wanted to go into the most recent iteration of the Wasm Component Model in the language with the strongest Wasm ecosystem - Rust with wit-bindgen. Turns out that this also has a good amount of limitations.
+I've explored the field by starting out with the most familiar high-level language out of the bunch - AssemblyScript. Unfortunately, it's binding-generation ecosystem [as-bind](https://github.com/torch2424/as-bind) has mostly been abandoned and it is
+therefore only really useful for basic Wasm usage as of today.
 
 ### Wasm-Bindgen with Wasm-Pack
-Wasm-Bindgen is the precursor to wit-bindgen in that it allows the generation of bindings from another language into the memory-space of the guest-module. It therefore allows us to pass complex data types from JS to a Wasm-Module built in Rust and the other way around.
+Wasm-Bindgen can be understood as a tight coupling between the Rust and the JS Ecosystem. Part of its ecosystem are packages like js-sys and web-sys to take care of the boilerplate for interacting with JS as well as the Browser.
+It has been around for a while and is quite mature. There is an alternative nowadays which is wit-bindgen. It allows the generation of bindings from another language into the memory-space of the guest-module.
 
-## WasmTime or Wasmer?
-// TODO - Haven't yet found anything that I could universally compile such that I could fulfill the promise of running the code everywhere...
-// TODO - Might make a case out of sharing code between different BE languages. There, wit-bindgen might actually be useful.
+### Wit-Bindgen
+As of the day of writing, WIT is not as mature as wasm-bindgen is, but it is supported well-enough in a handful of languages (Rust, JS/TS, Python, Go). 
+Whilst, with wit-bindgen, you only need one binding step, since wit-bindgen goes towards WIT as an abstraction and the host-language will have to generate its own bindings. 
 
+## Which runtime? 
+This repository treats the Wasm runtimes as mostly interchangeable as of today.
